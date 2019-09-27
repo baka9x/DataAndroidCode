@@ -26,7 +26,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List contracts, callogs, media, bookmasks;
-
+    //Khai báo permission
     private final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 990;
     private final int MY_PERMISSIONS_REQUEST_READ_CALLLOG = 991;
     private final int MY_PERMISSIONS_REQUEST_READ_MEDIA = 992;
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Init
         requestPermissionContacts();
         requestPermissionCalllog();
         requestPermissionMedia();
@@ -114,19 +115,7 @@ public class MainActivity extends AppCompatActivity {
         }
         Toast.makeText(this, "Size: " + media.size(), Toast.LENGTH_SHORT).show();
     }
-    //retrieve all Media
-    /*private void readAllBookmark() {
-        Cursor cursor = getContentResolver()
-                .query(Browser.,
-                        null, null, null, null);
-        media = new ArrayList();
-        int nameIndex = cursor.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME);
-        while (cursor.moveToNext()){
-            media.add(cursor.getString(nameIndex));
-
-        }
-        Toast.makeText(this, "Size: " + media.size(), Toast.LENGTH_SHORT).show();
-    }*/
+   
     private void requestPermissionContacts(){
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this,
